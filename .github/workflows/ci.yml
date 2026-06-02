@@ -20,13 +20,13 @@ jobs:
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U postgres"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
 
     env:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/nexus_inventory
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/nexus_inventory
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
 
@@ -41,14 +41,8 @@ jobs:
           java-version: 17
           cache: maven
 
-      - name: Wait for Postgres to be ready
-        run: |
-          echo "Waiting for Postgres..."
-          for i in {1..20}; do
-            nc -z localhost 5432 && echo "Postgres ready" && exit 0
-            sleep 2
-          done
-          echo "Postgres failed to start" && exit 1
+      - name: Wait for Postgres
+        run: sleep 10
 
       - name: Build project
         run: mvn clean compile
