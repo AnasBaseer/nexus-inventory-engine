@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     services:
@@ -43,7 +42,13 @@ jobs:
           cache: maven
 
       - name: Wait for Postgres to be ready
-        run: sleep 10
+        run: |
+          echo "Waiting for Postgres..."
+          for i in {1..20}; do
+            nc -z localhost 5432 && echo "Postgres ready" && exit 0
+            sleep 2
+          done
+          echo "Postgres failed to start" && exit 1
 
       - name: Build project
         run: mvn clean compile
