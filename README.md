@@ -207,6 +207,62 @@ DELETE /api/products/{id}
 
 The table is automatically generated using Hibernate and JPA entity mappings.
 
+## DevOps & CI/CD
+
+The project includes a complete CI/CD pipeline implemented using GitHub Actions and modern DevOps practices.
+
+### Continuous Integration (CI)
+
+The CI pipeline automatically runs on every push and pull request and performs:
+
+* Maven Build Verification
+* Checkstyle Code Quality Checks
+* Unit Test Execution
+* Docker Image Build Validation
+* PostgreSQL Service Integration
+
+### Security
+
+Security automation is implemented using:
+
+* GitHub CodeQL Security Analysis
+* Dependabot Dependency Monitoring
+* Automated Vulnerability Detection
+
+### Containerization
+
+The application is fully containerized using Docker.
+
+#### Docker Features
+
+* Multi-stage Docker Build
+* Docker Compose Support
+* PostgreSQL Container Integration
+* Production-ready Container Packaging
+
+### Container Registry
+
+Docker images are automatically published to GitHub Container Registry (GHCR) through GitHub Actions.
+
+Published Image:
+
+```text
+ghcr.io/anasbaseer/nexus-inventory-engine
+```
+
+### Quality Gates
+
+Every commit is validated through:
+
+* Build Verification
+* Code Style Enforcement (Checkstyle)
+* Unit Testing
+* Security Scanning
+* Docker Build Validation
+
+This ensures only validated and production-ready code reaches the main branch.
+
+
 ## Future Enhancements
 
 Planned improvements for future iterations of the project:
@@ -214,12 +270,10 @@ Planned improvements for future iterations of the project:
 * JWT Authentication and Authorization
 * Role-Based Access Control (RBAC)
 * Swagger / OpenAPI Documentation
-* Docker Containerization
 * Inventory Analytics Dashboard
 * Product Search and Filtering
 * Audit Logging
 * Unit and Integration Testing
-* CI/CD Pipeline using GitHub Actions
 
 ## Author
 
