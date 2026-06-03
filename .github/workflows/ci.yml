@@ -34,7 +34,7 @@ jobs:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/nexus_inventory
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
-      IMAGE_NAME: ghcr.io/${{ github.repository }}
+      IMAGE_NAME: ghcr.io/anasbaseer/nexus-inventory-engine
 
     steps:
       - name: Checkout code
