@@ -55,3 +55,6 @@ jobs:
 
       - name: Package application
         run: mvn clean package -DskipTests
+
+      - name: Build Docker image
+        run: docker build -t nexus-inventory-engine:ci .
